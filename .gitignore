@@ -1,0 +1,11 @@
+# Local editor / Claude Code preview settings — not part of the website
+.claude/
+
+# Earlier Next.js build, kept locally for reuse; not part of the website
+_previous/
+
+# Taste Skill working files
+.taste-skill/
+
+# Playwright screenshots and logs
+.playwright-cli/
