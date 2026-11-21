@@ -167,7 +167,7 @@ function renderExperience(c) {
           <p class="eyebrow pipeline__label" style="--k:0">${esc(item.stage)}</p>
           <h3 class="pipeline__role" style="--k:1">${esc(item.role)}</h3>
           <p class="pipeline__org" style="--k:2">${esc(item.org)} · <time>${esc(item.period)}</time></p>
-          <ul class="pipeline__points" style="--k:3">${item.points.map((pt) => `<li>${esc(pt)}</li>`).join('')}</ul>
+          ${item.points?.length ? `<ul class="pipeline__points" style="--k:3">${item.points.map((pt) => `<li>${esc(pt)}</li>`).join('')}</ul>` : ''}
           <div style="--k:4">${tags(item.tech)}</div>
         </article>
       </li>`,
@@ -234,13 +234,15 @@ function renderAbout(c) {
     )
     .join('');
 
-  const certs = (c.education.certifications || [])
+  const awardList = (list = []) => list
     .map((ct) => {
       const inner = `<span class="cert__logo" aria-hidden="true">${ct.icon ? logo(ct.icon) : icon('award')}</span>
         <span class="cert__name">${esc(ct.name)}</span><span class="cert__issuer">${esc(ct.issuer)}</span>`;
       return `<li>${ct.href ? `<a class="cert" ${linkAttrs(ct.href)}>${inner}</a>` : `<span class="cert">${inner}</span>`}</li>`;
     })
     .join('');
+  const certs = awardList(c.education.certifications);
+  const wins = awardList(c.education.achievements);
 
   const groups = c.skills.groups
     .map(
@@ -254,13 +256,14 @@ function renderAbout(c) {
     .join('');
 
   const q = c.quote;
-  const hasEdu = Boolean(edu || certs); // the column is left out while both lists are empty
+  const hasEdu = Boolean(edu || certs || wins); // the column is left out while all lists are empty
   return `
     <div class="about__grid${hasEdu ? '' : ' about__grid--no-edu'}" data-scene>
       ${hasEdu ? `<section class="about__col about__col--edu" id="education" aria-labelledby="edu-title">
         <h2 class="section__title" id="edu-title" data-split>${esc(c.education.title)}</h2>
         ${edu ? `<ul class="edu" role="list">${edu}</ul>` : ''}
         ${certs ? `<h3 class="eyebrow">Certifications</h3><ul class="certs" role="list" data-reveal>${certs}</ul>` : ''}
+        ${wins ? `<h3 class="eyebrow" id="achievements">Achievements</h3><ul class="certs" role="list" data-reveal>${wins}</ul>` : ''}
       </section>` : ''}
 
       <section class="about__col about__col--skills" id="skills" aria-labelledby="skills-title">

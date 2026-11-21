@@ -207,16 +207,27 @@ export const content = {
       },
       {
         stage: 'Leadership',
-        role: 'Leadership & Activities',
-        org: 'VIT Vellore',
-        period: '2025 – Present',
-        points: [
-          'Secretary, VRIKSH Club (current).',
-          'Student Manager, GRAVITAS Publicity & Marketing (Sept 2026).',
-          'Coordinator, INFUSION at Riviera, VIT’s cultural fest (2025).',
-          'Eco Hackathon participant, IIT (BHU) Varanasi (2025).',
-        ],
-        tech: ['Leadership', 'Marketing', 'Event Ops'],
+        role: 'Secretary',
+        org: 'VRIKSH Club, VIT Vellore',
+        period: 'Present',
+        points: [],
+        tech: ['Leadership'],
+      },
+      {
+        stage: 'Marketing',
+        role: 'Student Manager',
+        org: 'GRAVITAS Publicity & Marketing, VIT Vellore',
+        period: 'Sept 2026',
+        points: [],
+        tech: ['Publicity', 'Marketing'],
+      },
+      {
+        stage: 'Events',
+        role: 'Coordinator',
+        org: 'INFUSION at Riviera, VIT’s cultural fest',
+        period: '2025',
+        points: [],
+        tech: ['Event Ops'],
       },
     ],
     // Final node of the pipeline
@@ -226,7 +237,7 @@ export const content = {
   /* ---------- Education ----------
    * The column is hidden while both lists are empty.
    * Item: { degree: 'B.Tech in …', school: '…', period: '2023 – 2027', badge: 'VIT', logo: '' }
-   * Certification: { name: '…', issuer: '…', icon: 'simpleicons-slug', href: 'certificate URL' }
+   * Certification / achievement: { name: '…', issuer: '…', icon: 'simpleicons-slug', href: 'URL' } (icon and href optional)
    */
   education: {
     title: 'Education',
@@ -234,6 +245,9 @@ export const content = {
       { degree: 'B.Tech in Computer Science (Data Science)', school: 'Vellore Institute of Technology, Vellore · CGPA 8.21/10', period: '2023 – 2027', badge: 'VIT', logo: '' },
     ],
     certifications: [],
+    achievements: [
+      { name: 'Eco Hackathon participant', issuer: 'IIT (BHU) Varanasi · 2025' },
+    ],
   },
 
   /* ---------- Skills ---------- */
