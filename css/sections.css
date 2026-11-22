@@ -141,8 +141,8 @@
   background: rgba(159, 199, 184, 0.08);
 }
 
-/* Grainy gradient behind every section: soft green light pools that drift very slowly,
-   with a stronger grain than the page-wide film grain. Pure CSS; sits under the 3D bubbles. */
+/* Grainy gradient behind every section: soft green light pools with grain. Static on purpose:
+   a drifting full-screen layer with a blend mode cost about a third of the scroll frame rate. */
 .aurora {
   position: fixed;
   inset: 0;
@@ -153,25 +153,20 @@
 .aurora::before {
   content: '';
   position: absolute;
-  inset: -25%;
+  inset: 0;
   background:
     radial-gradient(28% 32% at 18% 30%, rgba(47, 107, 94, 0.42), transparent 70%),
     radial-gradient(26% 30% at 82% 62%, rgba(159, 199, 184, 0.13), transparent 70%),
     radial-gradient(34% 38% at 58% 104%, rgba(63, 100, 88, 0.38), transparent 70%),
     radial-gradient(22% 26% at 70% 12%, rgba(63, 100, 88, 0.22), transparent 70%);
-  animation: aurora-drift 45s ease-in-out infinite alternate;
-  will-change: transform;
 }
 .aurora::after {
   content: '';
   position: absolute;
   inset: 0;
   background-image: var(--noise);
-  opacity: 0.16;
-  mix-blend-mode: overlay;
+  opacity: 0.05;
 }
-@keyframes aurora-drift { to { transform: translate3d(5%, -4%, 0) rotate(6deg) scale(1.08); } }
-@media (prefers-reduced-motion: reduce) { .aurora::before { animation: none; } }
 
 /* Full-page 3D background (js/bg3d.js): fixed behind all content */
 .bg3d {
@@ -318,8 +313,7 @@ main, .footer { position: relative; z-index: 1; }
   position: absolute;
   inset: 0;
   background-image: var(--noise);
-  opacity: 0.22;
-  mix-blend-mode: overlay;
+  opacity: 0.07; /* plain opacity, not a blend mode: blending repaints on every scroll frame */
 }
 
 /* Giant word behind the photo. fitHeroWord() in interactions.js sets --word-size so it spans
@@ -382,8 +376,6 @@ main, .footer { position: relative; z-index: 1; }
   justify-self: center;
   width: min(170%, calc(max(680px, 100svh - 74px) * 0.74 + 50px));
   margin-bottom: -64px;
-  /* on the figure, so the glow follows the cut-out's outline after the image's fade mask */
-  filter: drop-shadow(0 0 40px rgba(159, 199, 184, 0.16));
 }
 .hero__photo img {
   width: 100%;
