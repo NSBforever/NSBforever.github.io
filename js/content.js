@@ -207,27 +207,23 @@ export const content = {
       },
       {
         stage: 'Leadership',
-        role: 'Secretary',
-        org: 'VRIKSH Club, VIT Vellore',
-        period: 'Present',
-        points: [],
-        tech: ['Leadership'],
+        role: 'Student Leadership',
+        org: 'VIT Vellore',
+        period: '2025 – Present',
+        points: [
+          'Secretary, VRIKSH Club (current).',
+          'Student Manager, GRAVITAS Publicity & Marketing (Sept 2026).',
+          'Coordinator, INFUSION at Riviera, VIT’s cultural fest (2025).',
+        ],
+        tech: ['Leadership', 'Marketing', 'Event Ops'],
       },
       {
-        stage: 'Leadership',
-        role: 'Student Manager',
-        org: 'GRAVITAS Publicity & Marketing, VIT Vellore',
-        period: 'Sept 2026',
-        points: [],
-        tech: ['Publicity', 'Marketing'],
-      },
-      {
-        stage: 'Leadership',
-        role: 'Coordinator',
-        org: 'INFUSION at Riviera, VIT’s cultural fest',
+        stage: 'Activities',
+        role: 'Eco Hackathon',
+        org: 'IIT (BHU) Varanasi',
         period: '2025',
-        points: [],
-        tech: ['Event Ops'],
+        points: ['Participant.'],
+        tech: ['Hackathon'],
       },
     ],
     // Final node of the pipeline
@@ -245,9 +241,6 @@ export const content = {
       { degree: 'B.Tech in Computer Science (Data Science)', school: 'Vellore Institute of Technology, Vellore · CGPA 8.21/10', period: '2023 – 2027', badge: 'VIT', logo: '' },
     ],
     certifications: [],
-    activities: [
-      { name: 'Eco Hackathon participant', issuer: 'IIT (BHU) Varanasi · 2025' },
-    ],
   },
 
   /* ---------- Skills ---------- */

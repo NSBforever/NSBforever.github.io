@@ -242,7 +242,6 @@ function renderAbout(c) {
     })
     .join('');
   const certs = awardList(c.education.certifications);
-  const wins = awardList(c.education.activities);
 
   const groups = c.skills.groups
     .map(
@@ -256,14 +255,13 @@ function renderAbout(c) {
     .join('');
 
   const q = c.quote;
-  const hasEdu = Boolean(edu || certs || wins); // the column is left out while all lists are empty
+  const hasEdu = Boolean(edu || certs); // the column is left out while both lists are empty
   return `
     <div class="about__grid${hasEdu ? '' : ' about__grid--no-edu'}" data-scene>
       ${hasEdu ? `<section class="about__col about__col--edu" id="education" aria-labelledby="edu-title">
         <h2 class="section__title" id="edu-title" data-split>${esc(c.education.title)}</h2>
         ${edu ? `<ul class="edu" role="list">${edu}</ul>` : ''}
         ${certs ? `<h3 class="eyebrow">Certifications</h3><ul class="certs" role="list" data-reveal>${certs}</ul>` : ''}
-        ${wins ? `<h3 class="eyebrow" id="activities">Activities</h3><ul class="certs" role="list" data-reveal>${wins}</ul>` : ''}
       </section>` : ''}
 
       <section class="about__col about__col--skills" id="skills" aria-labelledby="skills-title">
