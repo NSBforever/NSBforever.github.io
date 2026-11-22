@@ -242,7 +242,7 @@ function renderAbout(c) {
     })
     .join('');
   const certs = awardList(c.education.certifications);
-  const wins = awardList(c.education.achievements);
+  const wins = awardList(c.education.activities);
 
   const groups = c.skills.groups
     .map(
@@ -263,7 +263,7 @@ function renderAbout(c) {
         <h2 class="section__title" id="edu-title" data-split>${esc(c.education.title)}</h2>
         ${edu ? `<ul class="edu" role="list">${edu}</ul>` : ''}
         ${certs ? `<h3 class="eyebrow">Certifications</h3><ul class="certs" role="list" data-reveal>${certs}</ul>` : ''}
-        ${wins ? `<h3 class="eyebrow" id="achievements">Achievements</h3><ul class="certs" role="list" data-reveal>${wins}</ul>` : ''}
+        ${wins ? `<h3 class="eyebrow" id="activities">Activities</h3><ul class="certs" role="list" data-reveal>${wins}</ul>` : ''}
       </section>` : ''}
 
       <section class="about__col about__col--skills" id="skills" aria-labelledby="skills-title">

@@ -214,7 +214,7 @@ export const content = {
         tech: ['Leadership'],
       },
       {
-        stage: 'Marketing',
+        stage: 'Leadership',
         role: 'Student Manager',
         org: 'GRAVITAS Publicity & Marketing, VIT Vellore',
         period: 'Sept 2026',
@@ -222,7 +222,7 @@ export const content = {
         tech: ['Publicity', 'Marketing'],
       },
       {
-        stage: 'Events',
+        stage: 'Leadership',
         role: 'Coordinator',
         org: 'INFUSION at Riviera, VIT’s cultural fest',
         period: '2025',
@@ -245,7 +245,7 @@ export const content = {
       { degree: 'B.Tech in Computer Science (Data Science)', school: 'Vellore Institute of Technology, Vellore · CGPA 8.21/10', period: '2023 – 2027', badge: 'VIT', logo: '' },
     ],
     certifications: [],
-    achievements: [
+    activities: [
       { name: 'Eco Hackathon participant', issuer: 'IIT (BHU) Varanasi · 2025' },
     ],
   },
